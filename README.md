@@ -221,6 +221,111 @@ DISCOVERED → ENRICHMENT_PENDING → ENRICHED → ELIGIBILITY_PENDING
 → SUBMITTING → SUBMITTED → CONFIRMED/FAILED
 ```
 
+## Form Validation & Submission Policy
+
+The system performs comprehensive validation before submission to ensure form completeness and adherence to policy.
+
+### Form Validation Checks
+
+| Check | Purpose | Severity |
+|-------|---------|----------|
+| **Required Fields** | Ensure all mandatory fields are filled | Error |
+| **No Validation Errors** | No error messages visible on page | Error |
+| **Valid Emails** | Email addresses match proper format | Error |
+| **Valid Phone Numbers** | Phone numbers have proper structure | Warning |
+| **Required Files** | Resume/cover letter uploaded | Error |
+| **No Suspicious Values** | Catch placeholder/example text | Warning |
+
+### Submission Policy Engine
+
+Policy configuration (`config/application-policy.json`):
+
+```json
+{
+  "submissionMode": "manual|reviewed-auto|automatic",
+  "minimumScore": 7.0,
+  "maximumApplications": 100,
+  "oneApplicationPerCompany": true,
+  "requireAll": {
+    "eligibilityPassed": true,
+    "validationPassed": true,
+    "noUnknownAnswers": true,
+    "noPendingChallenge": true,
+    "duplicateCheckPassed": true,
+    "correctDocumentsAttached": true,
+    "sponsorshipAnswerVerified": true
+  },
+  "manualReviewWhen": [
+    "unknown-question",
+    "legal-question",
+    "salary-question",
+    "work-authorization-question"
+  ]
+}
+```
+
+### Policy Decision Flow
+
+```
+Policy Engine Evaluation
+├── Check: Score ≥ minimum
+├── Check: Eligibility passed
+├── Check: Form validation passed
+├── Check: No unknown answers
+├── Check: No pending challenges
+├── Check: Not duplicate
+├── Check: Documents present
+└── Check: Sponsorship verified
+
+Recommendation:
+├── SUBMIT (all checks pass)
+├── REVIEW (1-2 checks fail OR manual review required)
+└── SKIP (3+ checks fail)
+
+Submission Mode:
+├── manual: Always request human review
+├── reviewed-auto: Auto-submit if SUBMIT, manual if REVIEW
+└── automatic: Only submit if SUBMIT (experimental)
+```
+
+### Application Logging
+
+All submissions logged to `logs/submissions.jsonl`:
+
+```json
+{
+  "applicationId": "app-123",
+  "jobId": "job-456",
+  "company": "Acme Corp",
+  "title": "Product Manager",
+  "submittedAt": "2026-07-13T14:30:00Z",
+  "confirmationId": "APP-789",
+  "resumeUsed": "acme-corp-resume.pdf",
+  "formValidationPassed": true,
+  "policyValidationPassed": true,
+  "duration": 45000,
+  "timestamp": "2026-07-13T14:30:00Z"
+}
+```
+
+### Submission Report
+
+Automatically generated after batch:
+
+```
+Application Submission Report
+==============================
+
+Summary:
+- Submitted: 23
+- Confirmed: 22
+- Failed: 1
+- Pending: 5
+- Average Duration: 42.5s
+
+Success Rate: 95.7%
+```
+
 ## Credential Management
 
 The system securely stores and manages credentials for ATS accounts without exposing them to the AI model.
@@ -496,11 +601,16 @@ npm run lint
 - ✅ Email verification detection
 - ✅ Credential generation and rotation
 
-### Milestone 6: Submission & Validation
-- Form inspection and field mapping
-- Resume parsing correction
-- Application validation
-- Submission policy enforcement
+### Milestone 6: Submission & Validation ✅
+- ✅ Form validation with 6+ checks
+- ✅ Required field validation
+- ✅ Email and phone format validation
+- ✅ Suspicious value detection
+- ✅ Submission policy engine
+- ✅ Policy-driven submit/review/skip decisions
+- ✅ Application submission logging
+- ✅ JSONL audit trail
+- ✅ Submission statistics and reporting
 
 ### Milestone 7: Reliability & Polish
 - Error recovery mechanisms
