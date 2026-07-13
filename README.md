@@ -290,38 +290,42 @@ npm run lint
 - ✅ Score command with eligibility evaluation
 - ✅ Export command to generate Excel workbook
 
-### Milestone 3: Eligibility & Scoring ✅ (Partial)
+### Milestone 3: Document Generation ✅
 - ✅ Evidence-based eligibility engine
 - ✅ Sponsorship status detection
 - ✅ Scoring rubric implementation
-- 🔲 Model provider abstraction
-- 🔲 Dashboard job details page
+- ✅ LaTeX resume tailoring with keyword matching
+- ✅ Resume PDF compilation (xelatex/pdflatex)
+- ✅ One-page validation and word count checking
+- ✅ Resume-to-experience claim traceability
+- ✅ Keyword coverage analysis
+- ✅ Cover letter generation with domain extraction
+- ✅ Job selection with one-per-company constraint
+- ✅ Full pipeline orchestration
 
-### Milestone 4: Documents
-- Experience inventory integration
-- LaTeX resume generation and compilation
-- One-page validation
-- Cover letter generation
-
-### Milestone 5: Browser Automation
+### Milestone 4: Browser Automation & ATS Adapters
+- Model provider abstraction
 - Playwright browser manager
-- ATS detection engine
-- Greenhouse, Lever, Ashby, Workday adapters
-- Dry-run workflow implementation
+- ATS detection and routing
+- Greenhouse adapter
+- Lever adapter
+- Ashby adapter
+- Workday adapter
+- Dry-run application workflow
 
-### Milestone 6: Account & Credential Management
+### Milestone 5: Account & Credential Management
 - Account registry and lifecycle
 - Credential provider integrations
 - Persistent browser sessions
 - Human intervention queue
 
-### Milestone 7: Submission & Validation
+### Milestone 6: Submission & Validation
 - Form inspection and field mapping
 - Resume parsing correction
 - Application validation
 - Submission policy enforcement
 
-### Milestone 8: Reliability & Polish
+### Milestone 7: Reliability & Polish
 - Error recovery mechanisms
 - Rate limit handling
 - Security review
@@ -340,15 +344,27 @@ This is a personal productivity tool. All code should be:
 
 ## Known Limitations
 
-### Initial Milestone 1 Implementation
-- 🔲 Apify integration not yet implemented
-- 🔲 Job discovery workflow not implemented
-- 🔲 Scoring engine not implemented
-- 🔲 Document generation not implemented
-- 🔲 Browser automation not implemented
-- 🔲 API endpoints not yet implemented
+### Completed Implementation
+- ✅ Repository structure and infrastructure
+- ✅ Job discovery (with synthetic demo data for testing)
+- ✅ Job normalization and deduplication
+- ✅ Eligibility evaluation and scoring
+- ✅ Resume generation and validation
+- ✅ Cover letter generation
+- ✅ Job selection and ranking
+- ✅ Excel export
 
-This is normal for Milestone 1. Each subsequent milestone implements working vertical slices with full functionality.
+### In Development
+- 🔄 Browser automation (Playwright)
+- 🔄 ATS adapters (Greenhouse, Lever, Ashby, Workday)
+- 🔄 Application form filling
+- 🔄 Human intervention system
+
+### Future Work
+- 🔲 Model provider abstraction (Anthropic/OpenAI integration)
+- 🔲 Credential management integration (1Password, Keychain)
+- 🔲 API endpoints and advanced dashboard features
+- 🔲 Production deployment guides
 
 ## Support & Troubleshooting
 

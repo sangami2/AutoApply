@@ -1,0 +1,27 @@
+{
+  "name": "@job-copilot/documents",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./resume": "./dist/resume.js",
+    "./cover-letter": "./dist/cover-letter.js",
+    "./selection": "./dist/selection.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@job-copilot/shared": "workspace:*",
+    "@job-copilot/database": "workspace:*",
+    "@job-copilot/discovery": "workspace:*",
+    "latex.js": "^1.0.0",
+    "execa": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3"
+  }
+}
