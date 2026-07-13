@@ -1,0 +1,25 @@
+{
+  "lockedAnswers": {
+    "legalName": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phone": "+1-555-0123",
+    "workAuthorization": "F-1 OPT"
+  },
+  "approvedAnswers": {
+    "willingToRelocate": false,
+    "travelPercentage": "0-10%",
+    "remotePreference": "Preferred",
+    "sponsorshipRequired": true,
+    "startDate": "Flexible"
+  },
+  "manualReviewQuestions": [
+    "security clearance",
+    "export control",
+    "conflict of interest",
+    "background check",
+    "arbitration",
+    "non-compete",
+    "disability status",
+    "veteran status"
+  ]
+}

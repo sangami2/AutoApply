@@ -1,0 +1,35 @@
+{
+  "name": "@job-copilot/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "discovery": "node dist/commands/discovery.js",
+    "score": "node dist/commands/score.js",
+    "generate-documents": "node dist/commands/generate-documents.js",
+    "applications:dry-run": "node dist/commands/applications-dry-run.js",
+    "applications:start": "node dist/commands/applications-start.js",
+    "export": "node dist/commands/export.js",
+    "pipeline": "node dist/commands/pipeline.js"
+  },
+  "dependencies": {
+    "@job-copilot/shared": "workspace:*",
+    "@job-copilot/database": "workspace:*",
+    "@prisma/client": "^5.7.1",
+    "bullmq": "^5.4.11",
+    "redis": "^4.6.12",
+    "dotenv": "^16.3.1",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0"
+  }
+}

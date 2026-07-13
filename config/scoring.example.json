@@ -1,0 +1,13 @@
+{
+  "experienceWeightPercentage": 70,
+  "viabilityWeightPercentage": 30,
+  "rubric": {
+    "coreResponsibilityWeight": 0.3,
+    "requiredSkillsWeight": 0.2,
+    "productDomainWeight": 0.15,
+    "seniorityAlignWeight": 0.15,
+    "technicalBackgroundWeight": 0.1,
+    "educationWeight": 0.05,
+    "locationWorkWeight": 0.05
+  }
+}

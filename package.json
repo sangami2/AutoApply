@@ -1,0 +1,38 @@
+{
+  "name": "job-application-copilot",
+  "version": "0.1.0",
+  "description": "Production-quality job application discovery, evaluation, and submission automation",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run --workspace=apps/dashboard dev",
+    "worker": "npm run --workspace=apps/worker start",
+    "discovery": "npm run --workspace=apps/worker discovery",
+    "score": "npm run --workspace=apps/worker score",
+    "generate-documents": "npm run --workspace=apps/worker generate-documents",
+    "applications:dry-run": "npm run --workspace=apps/worker applications:dry-run",
+    "applications:start": "npm run --workspace=apps/worker applications:start",
+    "export": "npm run --workspace=apps/worker export",
+    "pipeline": "npm run --workspace=apps/worker pipeline",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "db:migrate": "npm run --workspace=packages/database migrate",
+    "db:generate": "npm run --workspace=packages/database generate",
+    "setup": "node scripts/setup.mjs",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:reset": "docker compose down -v"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3"
+  }
+}

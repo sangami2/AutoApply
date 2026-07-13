@@ -1,0 +1,25 @@
+{
+  "searches": [
+    {
+      "titles": [
+        "Product Manager",
+        "Technical Product Manager",
+        "Senior Product Manager",
+        "AI Product Manager",
+        "Associate Product Manager"
+      ],
+      "locations": [
+        "United States",
+        "Remote",
+        "San Francisco",
+        "New York",
+        "Seattle",
+        "Austin"
+      ],
+      "remoteAllowed": true,
+      "employmentTypes": ["full-time"],
+      "postedWithinDays": 7,
+      "maximumResultsPerSearch": 100
+    }
+  ]
+}

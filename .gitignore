@@ -1,0 +1,69 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+.next/
+.turbo/
+
+# Testing
+coverage/
+.vitest/
+.playwright/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Private data and configuration
+private-data/
+private-data-encrypted/
+!private-data/profile.example.json
+!private-data/experience-inventory.example.json
+!private-data/approved-answers.example.json
+!private-data/master-resume.example.tex
+
+# Generated files
+output/
+logs/
+*.log
+*.jsonl
+
+# Credentials and tokens
+.credentials/
+credentials.json
+vault.enc
+
+# Browser state
+browser-state/
+browser-cache/
+
+# Generated resumes and cover letters
+*.pdf
+!sample-resume.pdf
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Database
+*.db
+*.sqlite
+
+# Screenshots and sensitive images
+screenshots/
+captures/

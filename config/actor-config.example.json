@@ -1,0 +1,22 @@
+{
+  "linkedin": {
+    "actorId": "CONFIGURE_ME_WITH_YOUR_LINKEDIN_ACTOR_ID",
+    "enabled": true,
+    "inputMapping": {
+      "searchStringsArray": "queries",
+      "locationUuid": "locationId",
+      "filters": {
+        "postedDate": "MONTH"
+      }
+    }
+  },
+  "indeed": {
+    "actorId": "CONFIGURE_ME_WITH_YOUR_INDEED_ACTOR_ID",
+    "enabled": true,
+    "inputMapping": {
+      "searchStringsArray": "queries",
+      "location": "location",
+      "datePosted": "7"
+    }
+  }
+}

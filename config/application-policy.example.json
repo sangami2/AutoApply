@@ -1,0 +1,23 @@
+{
+  "submissionMode": "manual",
+  "minimumScore": 7.0,
+  "maximumApplications": 100,
+  "oneApplicationPerCompany": true,
+  "requireAll": {
+    "eligibilityPassed": true,
+    "validationPassed": true,
+    "noUnknownAnswers": true,
+    "noPendingChallenge": true,
+    "duplicateCheckPassed": true,
+    "correctDocumentsAttached": true,
+    "sponsorshipAnswerVerified": true
+  },
+  "manualReviewWhen": [
+    "unknown-question",
+    "legal-question",
+    "salary-question",
+    "work-authorization-question",
+    "portal-changed",
+    "low-confidence-field-mapping"
+  ]
+}
