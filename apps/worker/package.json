@@ -23,6 +23,8 @@
     "@job-copilot/evaluation": "workspace:*",
     "@job-copilot/documents": "workspace:*",
     "@job-copilot/workbook": "workspace:*",
+    "@job-copilot/browser": "workspace:*",
+    "@job-copilot/ats-adapters": "workspace:*",
     "@prisma/client": "^5.7.1",
     "bullmq": "^5.4.11",
     "redis": "^4.6.12",

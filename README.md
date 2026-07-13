@@ -221,6 +221,66 @@ DISCOVERED → ENRICHMENT_PENDING → ENRICHED → ELIGIBILITY_PENDING
 → SUBMITTING → SUBMITTED → CONFIRMED/FAILED
 ```
 
+## Browser Automation
+
+The system supports end-to-end application automation with intelligent ATS detection and adaptation.
+
+### Supported ATS Platforms
+- ✅ Greenhouse (full adapter)
+- ✅ Lever (form filling)
+- ✅ Ashby (form filling)
+- ✅ Workday (profile and documents)
+- 🔲 iCIMS, Phenom, Taleo, SmartRecruiters, Jobvite, SuccessFactors (detection only)
+
+### Browser Manager Features
+- **State Persistence**: Save and restore browser context across sessions
+- **Screenshot Capture**: Automatic screenshots at key workflow points
+- **Headless & Visual Modes**: Run headless or with visible browser for testing
+- **Session Management**: Maintain separate browser contexts per application
+- **Accessibility**: Handle modern web applications with JavaScript rendering
+
+### ATS Adapter System
+```typescript
+interface BaseATSAdapter {
+  canHandle(page: Page): Promise<boolean>;
+  openApplication(page: Page, jobUrl: string): Promise<boolean>;
+  inspectForm(page: Page): Promise<FormInspectionResult>;
+  fillProfile(page: Page, data: ProfileData): Promise<FillResult>;
+  fillEmployment(page: Page, experiences: ExperienceData[]): Promise<FillResult>;
+  fillEducation(page: Page, education: EducationData[]): Promise<FillResult>;
+  uploadDocuments(page: Page, documents: DocumentData): Promise<FillResult>;
+  answerQuestions(page: Page, answers: Record<string, string>): Promise<FillResult>;
+  validate(page: Page): Promise<{ valid: boolean; errors: string[] }>;
+  submit(page: Page): Promise<SubmissionResult>;
+}
+```
+
+### Dry-Run Workflow
+```bash
+npm run applications:dry-run
+```
+1. Launches browser (visible for debugging)
+2. Navigates to application URLs
+3. Detects ATS provider
+4. Inspects form structure
+5. Captures screenshots
+6. Saves form configuration
+7. Pauses for human review
+
+### ATS Detection
+Detects ATS provider by:
+1. URL pattern matching (fastest)
+2. DOM marker detection (class/id patterns)
+3. Script source detection
+4. Generic portal detection (fallback)
+
+Example:
+```
+job-listing.html → detect URL patterns →
+→ Find "greenhouse.io" → return AtsProvider.GREENHOUSE →
+→ Route to GreenhouseAdapter
+```
+
 ## Security & Privacy
 
 🔒 **No Credential Exposure**
@@ -303,15 +363,17 @@ npm run lint
 - ✅ Job selection with one-per-company constraint
 - ✅ Full pipeline orchestration
 
-### Milestone 4: Browser Automation & ATS Adapters
-- Model provider abstraction
-- Playwright browser manager
-- ATS detection and routing
-- Greenhouse adapter
-- Lever adapter
-- Ashby adapter
-- Workday adapter
-- Dry-run application workflow
+### Milestone 4: Browser Automation & ATS Adapters ✅
+- ✅ Playwright browser manager with state persistence
+- ✅ ATS provider detection (10+ ATS systems)
+- ✅ Base ATS adapter interface with common patterns
+- ✅ Greenhouse adapter (full implementation)
+- ✅ Lever adapter (form filling)
+- ✅ Ashby adapter (form filling)
+- ✅ Workday adapter (profile and file upload)
+- ✅ Dry-run application workflow
+- ✅ Form inspection and field detection
+- ✅ Screenshot capture for debugging
 
 ### Milestone 5: Account & Credential Management
 - Account registry and lifecycle

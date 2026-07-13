@@ -1,0 +1,27 @@
+{
+  "name": "@job-copilot/ats-adapters",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./base": "./dist/base.js",
+    "./greenhouse": "./dist/greenhouse.js",
+    "./lever": "./dist/lever.js",
+    "./ashby": "./dist/ashby.js",
+    "./workday": "./dist/workday.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@job-copilot/shared": "workspace:*",
+    "@job-copilot/browser": "workspace:*",
+    "playwright": "^1.40.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3"
+  }
+}
