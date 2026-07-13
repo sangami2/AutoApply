@@ -221,6 +221,117 @@ DISCOVERED → ENRICHMENT_PENDING → ENRICHED → ELIGIBILITY_PENDING
 → SUBMITTING → SUBMITTED → CONFIRMED/FAILED
 ```
 
+## Credential Management
+
+The system securely stores and manages credentials for ATS accounts without exposing them to the AI model.
+
+### Credential Providers (Tiered)
+
+**1. 1Password CLI** (Recommended for production)
+- Secure credential storage via 1Password service account
+- Automatic credential rotation
+- Audit logging in 1Password vault
+- No passwords in logs or code
+
+```bash
+export ONEPASSWORD_SERVICE_ACCOUNT_TOKEN=<token>
+# System automatically uses 1Password CLI
+```
+
+**2. macOS Keychain** (Local development)
+- System keychain integration
+- No configuration needed on macOS
+- Automatically used as fallback
+
+**3. Encrypted Local Vault** (Development only)
+- AES-256 encryption with configurable key
+- Single-machine security only
+- Never use in production
+
+```bash
+export ENCRYPTION_KEY=<your-key>
+export CREDENTIAL_PROVIDER=vault
+```
+
+### Account Management
+
+```typescript
+const accountManager = new AccountManager('vault');
+
+// Get or create account
+const result = await accountManager.getOrCreateAccount(
+  page,
+  'greenhouse.io',      // employer domain
+  'acme-careers',       // ATS tenant
+  'greenhouse',         // ATS provider
+  'candidate@test.com'  // email
+);
+
+// Handle OTP
+await accountManager.handleOTP(page, accountId, '123456');
+```
+
+## Human Intervention System
+
+When the system encounters challenges it cannot automatically resolve, it creates an intervention request and pauses the workflow while continuing with other applications.
+
+### Intervention Types
+
+| Type | Trigger | Resolution |
+|------|---------|-----------|
+| **OTP** | One-time password required | User provides code |
+| **MFA** | Multi-factor authentication | User completes MFA |
+| **CAPTCHA** | CAPTCHA verification | User solves CAPTCHA |
+| **EMAIL_VERIFICATION** | Email verification needed | User clicks verification link |
+| **UNKNOWN_QUESTION** | Unrecognized application question | User provides answer |
+| **LEGAL_QUESTION** | Legal/compliance question | User confirms answer |
+| **WORK_AUTHORIZATION** | Work authorization question | User verifies answer |
+| **SALARY_QUESTION** | Salary expectation question | User provides range |
+| **PORTAL_MISMATCH** | Unsupported ATS platform | User manually applies |
+| **FINAL_REVIEW** | Form validation failed | User reviews and corrects |
+
+### Intervention Workflow
+
+```
+Application → Encounter Challenge
+↓
+Create Intervention Request (pause this application)
+↓
+Continue with Other Applications
+↓
+User Resolves Intervention (via dashboard or CLI)
+↓
+Resume Application from Pause Point
+↓
+Complete & Submit
+```
+
+### Intervention API
+
+```typescript
+const interventionManager = new InterventionManager();
+
+// Create intervention
+await interventionManager.createIntervention({
+  type: InterventionType.OTP,
+  applicationId: app.id,
+  description: 'OTP code required for account login',
+  screenshotPath: 'screenshots/otp-screen.png',
+});
+
+// Get pending interventions
+const pending = await interventionManager.getPendingInterventions();
+
+// Resolve intervention
+await interventionManager.respondToIntervention(
+  interventionId,
+  '123456' // user response
+);
+
+// Check if waiting
+const waiting = await interventionManager.isWaitingForIntervention(appId);
+```
+
 ## Browser Automation
 
 The system supports end-to-end application automation with intelligent ATS detection and adaptation.
@@ -375,11 +486,15 @@ npm run lint
 - ✅ Form inspection and field detection
 - ✅ Screenshot capture for debugging
 
-### Milestone 5: Account & Credential Management
-- Account registry and lifecycle
-- Credential provider integrations
-- Persistent browser sessions
-- Human intervention queue
+### Milestone 5: Account & Credential Management ✅
+- ✅ Secure credential storage (1Password, Keychain, Vault)
+- ✅ Account creation and login workflows
+- ✅ Account registry with ATS tenant isolation
+- ✅ OTP/MFA handling with user pause
+- ✅ Human intervention queue system
+- ✅ Intervention types: OTP, MFA, CAPTCHA, unknown questions, legal questions
+- ✅ Email verification detection
+- ✅ Credential generation and rotation
 
 ### Milestone 6: Submission & Validation
 - Form inspection and field mapping
