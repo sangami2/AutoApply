@@ -256,30 +256,46 @@ npm run typecheck
 npm run lint
 ```
 
-Milestone 1 includes:
-- ✅ Repository structure
-- ✅ Docker Compose setup
-- ✅ Prisma schema
-- ✅ Configuration schemas (Zod)
-- ✅ Candidate profile templates
-- ✅ Queue infrastructure (Redis/BullMQ)
-- ✅ Logging framework (Pino)
-- ✅ Dashboard shell (Next.js)
+### Completed Milestones
+
+**Milestone 1**: Repository structure, infrastructure, and configuration ✅
+- ✅ Repository structure with npm workspaces
+- ✅ Docker Compose setup for PostgreSQL and Redis
+- ✅ Comprehensive Prisma schema (14 models, 26 application states)
+- ✅ Configuration schemas (Zod) for all configuration files
+- ✅ Candidate profile and experience inventory templates
+- ✅ Queue infrastructure (Redis/BullMQ) setup
+- ✅ Logging framework (Pino) with structured logs
+- ✅ Dashboard shell (Next.js) with navigation and stats
+
+**Milestone 2**: Job Discovery & Normalization ✅
+- ✅ Apify client for job discovery (LinkedIn/Indeed)
+- ✅ Job normalization from multiple sources
+- ✅ 4-strategy deduplication engine
+- ✅ Job enrichment with ATS detection
+- ✅ Excel workbook export with formatting
+- ✅ Eligibility evaluation engine
+- ✅ Evidence-based scoring system
+- ✅ Sponsorship status detection
 
 ## Implementation Roadmap
 
-### Milestone 2: Job Discovery & Normalization
-- Apify client implementation
-- LinkedIn and Indeed adapters
-- Job normalization and deduplication
-- Job enrichment and ATS detection
-- Excel workbook export
+### Milestone 2: Job Discovery & Normalization ✅
+- ✅ Apify client implementation
+- ✅ LinkedIn and Indeed job normalizers
+- ✅ Multi-strategy job deduplication
+- ✅ Job enrichment with ATS detection
+- ✅ Excel workbook export with hidden data sheet
+- ✅ Discovery command with synthetic job generation for demo
+- ✅ Score command with eligibility evaluation
+- ✅ Export command to generate Excel workbook
 
-### Milestone 3: Eligibility & Scoring
-- Evidence-based eligibility engine
-- Scoring rubric implementation
-- Model provider abstraction
-- Dashboard job details page
+### Milestone 3: Eligibility & Scoring ✅ (Partial)
+- ✅ Evidence-based eligibility engine
+- ✅ Sponsorship status detection
+- ✅ Scoring rubric implementation
+- 🔲 Model provider abstraction
+- 🔲 Dashboard job details page
 
 ### Milestone 4: Documents
 - Experience inventory integration

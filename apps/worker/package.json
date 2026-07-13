@@ -19,6 +19,9 @@
   "dependencies": {
     "@job-copilot/shared": "workspace:*",
     "@job-copilot/database": "workspace:*",
+    "@job-copilot/discovery": "workspace:*",
+    "@job-copilot/evaluation": "workspace:*",
+    "@job-copilot/workbook": "workspace:*",
     "@prisma/client": "^5.7.1",
     "bullmq": "^5.4.11",
     "redis": "^4.6.12",
