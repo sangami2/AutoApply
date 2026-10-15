@@ -11,8 +11,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@job-copilot/shared": "workspace:*",
-    "@job-copilot/database": "workspace:*",
+    "@job-copilot/shared": "file:../shared",
+    "@job-copilot/database": "file:../database",
     "exceljs": "^4.4.0"
   },
   "devDependencies": {

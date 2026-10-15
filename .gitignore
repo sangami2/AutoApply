@@ -67,3 +67,33 @@ temp/
 # Screenshots and sensitive images
 screenshots/
 captures/
+logs/e2e-evidence/
+.browser-profile/
+.browser-profile-daily/
+links-queue.json
+links.txt
+
+# Local run artifacts and candidate documents
+runs/
+applications/
+jobs/
+latex/
+candidate_facts.md
+approved-master-resume-*.tex
+application-results.json
+applications-log.csv
+jobs-scored.csv
+jobs.txt
+today-queue.json
+today-queue.sh
+config/resume-sources.json
+config/com.*.plist
+.claude/settings.local.json
+
+# Generated TypeScript output and backup files
+*.bak
+*.tsbuildinfo
+apps/dashboard/src/app/**/*.jsx
+apps/dashboard/src/app/**/*.jsx.map
+apps/dashboard/src/app/**/*.d.ts
+apps/dashboard/src/app/**/*.d.ts.map

@@ -14,10 +14,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@job-copilot/shared": "workspace:*",
-    "@job-copilot/database": "workspace:*",
-    "@job-copilot/discovery": "workspace:*",
-    "latex.js": "^1.0.0",
+    "@job-copilot/shared": "file:../shared",
+    "@job-copilot/database": "file:../database",
+    "@job-copilot/discovery": "file:../discovery",
     "execa": "^6.1.0"
   },
   "devDependencies": {

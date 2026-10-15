@@ -16,8 +16,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@job-copilot/shared": "workspace:*",
-    "@job-copilot/browser": "workspace:*",
+    "@job-copilot/shared": "file:../shared",
+    "@job-copilot/browser": "file:../browser",
     "playwright": "^1.40.1"
   },
   "devDependencies": {

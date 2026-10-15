@@ -1,0 +1,23 @@
+{
+  "searchTerms": [
+    "Product Manager",
+    "Technical Product Manager",
+    "Senior Product Manager",
+    "Compliance Product Manager",
+    "Platform Product Manager",
+    "Associate Product Manager"
+  ],
+  "locations": [
+    "United States"
+  ],
+  "experienceLevels": ["Entry level", "Associate", "Mid-Senior level"],
+  "unfilteredExperienceTerms": ["Associate Product Manager"],
+  "strictTitleTerms": ["Associate Product Manager"],
+  "jobTypes": ["Full-time"],
+  "workModels": [],
+  "easyApplyOnly": false,
+  "maxPagesPerSearch": 5,
+  "maxResultsPerSearchTerm": 20,
+  "maxTotalResults": 0,
+  "loginWaitMinutes": 5
+}

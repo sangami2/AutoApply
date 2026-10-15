@@ -1,0 +1,13 @@
+{
+  "minimumBaseSalary": 100000,
+  "maxRequiredYears": 4,
+  "maxRequiredPmYears": 2,
+  "maxShortlistPerRun": 8,
+  "preferredCompanies": [
+    "Adobe", "Airbnb", "Amazon", "American Express", "Apple", "Atlassian",
+    "Block", "Box", "Capital One", "Cisco", "Dell", "Deloitte", "DoorDash", "Emerson", "Eurofins", "EY", "Google", "IBM", "Intuit",
+    "JPMorgan Chase", "Kikoff", "LinkedIn", "Mastercard", "Meta", "Microsoft", "Morgan & Morgan", "Netflix",
+    "KPMG", "NVIDIA", "Oracle", "PayPal", "PwC", "Salesforce", "SAP", "ServiceNow", "Shopify", "Spotify", "Stripe",
+    "Stryker", "T-Mobile", "Target", "Uber", "Visa", "Walmart", "Workday"
+  ]
+}

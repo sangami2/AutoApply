@@ -1,0 +1,12 @@
+{
+  "maxLinkedInSearchesPerDay": 999,
+  "searchPauseMinMs": 8000,
+  "searchPauseMaxMs": 15000,
+  "maxApplicationAttemptsPerDay": 999,
+  "applicationPauseMinMs": 120000,
+  "applicationPauseMaxMs": 240000,
+  "actionPauseMinMs": 700,
+  "actionPauseMaxMs": 1800,
+  "typingDelayMinMs": 55,
+  "typingDelayMaxMs": 120
+}

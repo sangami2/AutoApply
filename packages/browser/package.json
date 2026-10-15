@@ -13,7 +13,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@job-copilot/shared": "workspace:*",
+    "@job-copilot/shared": "file:../shared",
     "playwright": "^1.40.1"
   },
   "devDependencies": {

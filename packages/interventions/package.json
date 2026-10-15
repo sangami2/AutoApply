@@ -11,8 +11,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@job-copilot/shared": "workspace:*",
-    "@job-copilot/database": "workspace:*"
+    "@job-copilot/shared": "file:../shared",
+    "@job-copilot/database": "file:../database"
   },
   "devDependencies": {
     "@types/node": "^20.10.6",

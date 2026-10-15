@@ -198,10 +198,13 @@ logs/application-events.jsonl
 
 ## Third-Party Integrations
 
-### Apify Job Discovery
-- ✅ Uses Apify's legitimate job discovery APIs
-- ❌ Never scrape job boards directly
+### LinkedIn Browser Discovery
+- ✅ Uses a user-authenticated, persistent browser session without storing a LinkedIn password
+- ✅ Runs searches sequentially with randomized 8–15 second gaps and a default 15-search daily cap
+- ✅ Limits automatic application attempts to 3/day with 2–4 minute gaps
+- ✅ Types and clicks with conservative pacing instead of instantaneous bulk actions
 - ❌ Never bypass rate limits or anti-bot systems
+- ❌ Never attempt to defeat CAPTCHA, MFA, checkpoints, or account restrictions
 
 ### Anthropic / OpenAI
 - ✅ Models used for scoring, document generation, field mapping
@@ -234,10 +237,10 @@ logs/application-events.jsonl
 ## Compliance & Contractual
 
 ### Terms of Service
-- Job boards' Terms of Service must be reviewed
+- LinkedIn's Terms of Service and current automation restrictions must be reviewed by the user
 - Application via ATS is legitimate use
-- Bulk discovery via Apify is allowed
-- Rate limits must be respected
+- Discovery should remain low-volume and user-supervised
+- Rate limits and account restrictions must be respected
 
 ### Ethical Considerations
 - ✅ Generate truthful tailored resumes

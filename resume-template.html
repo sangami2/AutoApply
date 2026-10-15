@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', 'Times New Roman', serif; font-size: 8.2pt; line-height: 1.2; color: #000; padding: 0.38in 0.5in; }
+  h1 { text-align: center; font-size: 16pt; font-weight: bold; letter-spacing: 1px; font-variant: small-caps; }
+  .contact { text-align: center; font-size: 7.8pt; margin: 2px 0 5px; }
+  h2 { font-size: 9pt; font-weight: bold; text-transform: uppercase; border-bottom: 1.1px solid #000; margin: 6px 0 2px; padding-bottom: 1px; letter-spacing: 0.5px; }
+  .row { display: flex; justify-content: space-between; margin-top: 3px; }
+  .role { display: flex; justify-content: space-between; font-style: italic; font-size: 7.9pt; }
+  .org { font-weight: bold; }
+  ul { margin: 1px 0 1px 15px; }
+  li { margin-bottom: 1px; }
+  p.sum { margin-top: 2px; text-align: justify; }
+  .skills p { margin-top: 1.5px; }
+  b { font-weight: bold; }
+</style>
+</head>
+<body>
+  <h1>{{CANDIDATE_NAME}}</h1>
+  <div class="contact">{{CONTACT_LINE}}</div>
+
+  <h2>Summary</h2>
+  <p class="sum">{{SUMMARY}}</p>
+
+  <h2>Work Experience</h2>
+  <div class="row"><span class="org">TikTok (ByteDance)</span><span>San Jose, USA</span></div>
+  <div class="role"><span>Product Manager Intern</span><span>Jun 2025 – Aug 2025</span></div>
+  <ul>
+    <li>Owned consumer-social features from discovery through launch, converting creator behavior, user feedback, competitive insights, and platform gaps into roadmap priorities, PRDs, wireframes, event instrumentation, and success metrics.</li>
+    <li>Launched Share and Dislike capabilities for camera effects; defined sharing flows, feedback signals, A/B-test hypotheses, and launch criteria with Engineering and Data teams, driving an <b>18% lift in effect usage</b>.</li>
+    <li>Shaped the product strategy for the "Hot" discovery tab, translating creator cohorts, engagement signals, ranking inputs, and experiment results into requirements that improved effect discoverability by <b>25%</b>.</li>
+    <li>Led high-ambiguity execution across San Jose and Shanghai, aligning Design, Engineering, Analytics, QA, and leadership on product trade-offs, launch readiness, user experience, and post-launch iteration.</li>
+  </ul>
+
+  <div class="row"><span class="org">Business Intelligence Group, School of Information Sciences (UIUC)</span><span>Champaign, USA</span></div>
+  <div class="role"><span>Product Consultant</span><span>Jan 2025 – May 2026</span></div>
+  <ul>
+    <li>Led discovery for an FAA-aligned pilot scheduling platform, interviewing pilots and operations stakeholders to uncover planning, compliance, and exception-handling pain points across complex operational workflows.</li>
+    <li>Translated ambiguous stakeholder needs into PRDs, user stories, acceptance criteria, workflow maps, KPI definitions, and roadmap priorities for scalable scheduling and compliance capabilities.</li>
+    <li>Partnered with cross-functional stakeholders to validate requirements, support UAT, resolve delivery risks, and define success measures for schedule quality, on-time compliance, and operational efficiency.</li>
+  </ul>
+
+  <div class="row"><span class="org">Samsung R&amp;D Institute</span><span>Bengaluru, India</span></div>
+  <div class="role"><span>Senior Engineer</span><span>Jul 2022 – May 2024</span></div>
+  <ul>
+    <li>Partnered with Engineering, QA, and global stakeholders to translate reliability goals, customer-impacting defects, and technical constraints into requirements, release priorities, and execution plans for 4G/LTE platforms.</li>
+    <li>Expanded automated test coverage from <b>52% to 80%</b>, reducing regression risk and improving release confidence across fast-paced system delivery cycles.</li>
+    <li>Analyzed production logs, integration issues, and system-level defects to influence technical prioritization, improve troubleshooting workflows, and strengthen long-term platform quality.</li>
+  </ul>
+
+  <h2>Product Projects</h2>
+  <div class="row"><span class="org">GreySide | AI-Powered Mobile News Platform</span><span>Champaign, USA</span></div>
+  <div class="role"><span>Product Manager</span><span>Dec 2024 – Present</span></div>
+  <ul>
+    <li>Defined product vision and roadmap for a mobile-first consumer experience, synthesizing user interviews, content-consumption patterns, competitive research, and retention pain points into prioritized discovery and personalization features.</li>
+    <li>Launched AI/NLP-powered summaries and personalized content flows; ran usability tests and engagement analysis to grow the beta to <b>150+ DAU</b> and achieve <b>40% week-over-week retention</b>.</li>
+    <li>Built campus GTM and feedback loops through 15+ student organizations, using distribution experiments and user insights to increase engagement by <b>25%</b>.</li>
+  </ul>
+
+  <div class="row"><span class="org">AI Product Portfolio | Creator Copilot, AI Trust Checker, Grounding Analyser</span><span>Remote</span></div>
+  <div class="role"><span>Builder / Product Manager</span><span>2025 – Present</span></div>
+  <ul>
+    <li>Built and deployed end-to-end AI product prototypes using Claude, Claude Code, Cursor, Python, and web development tools, taking ideas from problem framing and user flows through functional implementation and iteration.</li>
+    <li>Developed AI workflows for creator support, output trust analysis, and grounding evaluation; designed prompts, evaluation criteria, and feedback loops to improve reliability, transparency, and user confidence in generated outputs.</li>
+    <li>Translated self-directed product ideas and Figma concepts into usable prototypes, demonstrating hands-on ownership across AI UX, prototyping, testing, product strategy, and technical execution.</li>
+  </ul>
+
+  <h2>Skills and Certifications</h2>
+  <div class="skills">
+    <p><b>Product Management:</b> {{SKILLS_PM}}</p>
+    <p><b>Consumer Product &amp; Analytics:</b> {{SKILLS_ANALYTICS}}</p>
+    <p><b>AI Product Development:</b> {{SKILLS_AI}}</p>
+    <p><b>Technical &amp; Tools:</b> {{SKILLS_TECH}}</p>
+  </div>
+
+  <h2>Education</h2>
+  <div class="row"><span class="org">University of Illinois at Urbana-Champaign</span><span>Champaign, USA</span></div>
+  <div class="role"><span>Master of Science in Information Management, GPA 3.92/4</span><span>Aug 2024 – May 2026</span></div>
+  <div class="row"><span class="org">Dayananda Sagar College of Engineering</span><span>Bengaluru, India</span></div>
+  <div class="role"><span>Bachelor of Engineering in Information Science &amp; Engineering, GPA 3.29/4</span><span>Aug 2018 – May 2022</span></div>
+</body>
+</html>

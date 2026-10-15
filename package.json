@@ -1,7 +1,7 @@
 {
   "name": "job-application-copilot",
   "version": "0.1.0",
-  "description": "Production-quality job application discovery, evaluation, and submission automation",
+  "description": "Daily LinkedIn discovery, evaluation, shortlisting, and Excel reporting",
   "private": true,
   "type": "module",
   "workspaces": [
@@ -11,7 +11,11 @@
   "scripts": {
     "dev": "npm run --workspace=apps/dashboard dev",
     "worker": "npm run --workspace=apps/worker start",
-    "discovery": "npm run --workspace=apps/worker discovery",
+    "discovery": "node discover.mjs",
+    "discovery:worker": "npm run --workspace=apps/worker discovery",
+    "linkedin:discover": "node linkedin-jobs.mjs",
+    "test:linkedin": "node --test tests/*.test.mjs",
+    "daily": "node daily-run.mjs",
     "score": "npm run --workspace=apps/worker score",
     "generate-documents": "npm run --workspace=apps/worker generate-documents",
     "applications:dry-run": "npm run --workspace=apps/worker applications:dry-run",
@@ -26,7 +30,17 @@
     "setup": "node scripts/setup.mjs",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
-    "docker:reset": "docker compose down -v"
+    "docker:reset": "docker compose down -v",
+    "test:config": "node scripts/test-config.mjs",
+    "test:credentials": "node scripts/test-credentials.mjs",
+    "test:db": "node scripts/test-db.mjs",
+    "test:ats": "node scripts/test-ats.mjs",
+    "test:health": "node scripts/test-health.mjs",
+    "test:all": "npm run test:config && npm run test:credentials && npm run test:db && npm run test:health",
+    "validate": "npm run typecheck && npm run test:all",
+    "export:scan": "node export-job-scan.mjs",
+    "daily:install": "bash scripts/install-daily-launch-agent.sh",
+    "daily:uninstall": "bash scripts/uninstall-daily-launch-agent.sh"
   },
   "engines": {
     "node": ">=18.0.0"
